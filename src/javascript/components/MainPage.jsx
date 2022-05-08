@@ -21,7 +21,7 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api'
 import { useRef, useState } from 'react'
-
+import { useNavigate } from 'react-router-dom';
 const center = { lat: 48.8584, lng: 2.2945 }
 
 function MainPage() {
@@ -34,7 +34,7 @@ function MainPage() {
   const [directionsResponse, setDirectionsResponse] = useState(null)
   const [distance, setDistance] = useState('')
   const [duration, setDuration] = useState('')
-
+  const navigate = useNavigate();
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef()
   /** @type React.MutableRefObject<HTMLInputElement> */
@@ -142,6 +142,13 @@ function MainPage() {
           />
         </HStack>
       </Box>
+
+      <ButtonGroup>
+            <Button colorScheme='pink' type='submit' onClick={ ()=> {navigate('/mailinfo')}} >
+              Mai departe
+            </Button>
+          </ButtonGroup>
+          
     </Flex>
   )
 }

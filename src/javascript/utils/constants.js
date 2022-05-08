@@ -1,0 +1,1 @@
+export const DEFAULT_MAIL = "guritaalexandru18@stud.ase.ro";
