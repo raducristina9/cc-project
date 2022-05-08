@@ -3,8 +3,8 @@ const router = express.Router();
 const { sendMail } = require('../utils/mailFunctions')
 
 router.post("/send", (req, res) => {
-    const { senderName, senderMail, receiverMail, messageContent} = req.body;
-    if (!senderName || !senderMail || !receiverMail || !messageContent) {
+    const { senderName, senderMail, receiverMail, messageContent, location} = req.body;
+    if (!senderName || !senderMail || !receiverMail || !messageContent || !location) {
         return res.status(400).send("Missing Parametres");
     }
 

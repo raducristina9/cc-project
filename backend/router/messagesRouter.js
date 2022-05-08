@@ -4,6 +4,19 @@ const router = express.Router();
 const connection = require("../database");
 const { sendMail } = require("../utils/mailFunctions");
 
+router.get("/", (req, res) => {
+    connection.query("SELECT * FROM meetinginfo", (err, results) => {
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        }
+
+        return res.json({
+            messages: results,
+        });
+    });
+});
+
 router.post("/info", async (req, res) => {
     const { senderName, senderMail, receiverMail,location,  messageContent, timeOfMeeting, dateOfMeeting } =
         req.body;
@@ -21,7 +34,7 @@ router.post("/info", async (req, res) => {
     }
 try{
 
-    let finalMessage = "Buna ".concat(senderName).concat(",\n Uremeaza sa ne vedem pe ").concat(dateOfMeeting).concat(" la ora").concat(timeOfMeeting).concat("\n Locatia finala este ").
+    let finalMessage = "Buna, sunt ".concat(senderName).concat(",\n Uremeaza sa ne vedem pe ").concat("\n Locatia finala este ").
     concat(location).concat("\n mai voiam sa iti transmit: \n").concat(messageContent)
 
         // sendMail(

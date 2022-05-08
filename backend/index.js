@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/utils", utilsRouter);
 app.use("/messages", messagesRouter);
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
     console.log(`Cloud computing app listening on port ${port}!`)
