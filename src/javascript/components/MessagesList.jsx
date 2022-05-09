@@ -18,7 +18,8 @@ function MessagesList() {
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(`http://localhost:8080/messages`);
+      // const result = await axios.get(`http://localhost:8080/messages`);
+      const result = await axios.get(`${process.env.REACT_APP_API_URL}/messages`);
 
       if (result.data.messages) {
         let messagesArray = result.data.messages;

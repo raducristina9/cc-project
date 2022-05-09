@@ -24,7 +24,7 @@ function MessagesSubmit() {
     const location = document.getElementById("location").value;
 
     try {
-      let response = await axios.post(`http://localhost:8080/messages/info`, {
+      let response = await axios.post(`${process.env.REACT_APP_API_URL}/info`, {
         senderName,
         senderMail: DEFAULT_MAIL,
         receiverMail,
@@ -36,7 +36,7 @@ function MessagesSubmit() {
         alert(`Mesaj trimis`);
       }
     } catch (error) {
-      alert("Something went wrong");
+      alert("Toate campurile trebuie completate");
       console.log(error);
     }
   };
