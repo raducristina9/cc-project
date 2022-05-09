@@ -10,7 +10,9 @@ function App() {
 <BrowserRouter>
   <Routes>
 	<Route path="/" element={<MainPage/>}/>
-  <Route path="/mailinfo" element={<><Navbar/><MessagesSubmit/><MessagesList/></>}/>
+  <Route path="/mailinfo" element={<><Navbar/><MessagesSubmit/></>}/>
+  <Route path="/locationinfo" element={<><Navbar/><MessagesList/></>}/>
+  
   </Routes>
 </BrowserRouter>
   );

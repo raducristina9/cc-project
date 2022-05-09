@@ -9,12 +9,15 @@ import {
   Input,
   Box,
   Flex,
-  Spacer
+  Spacer,
+  Heading,
+  Center
 } from "@chakra-ui/react";
-
+import { useNavigate } from 'react-router-dom';
 
 function MessagesSubmit() {
-  const handleMessageSend = async (e) => {
+    const navigate = useNavigate();
+    const handleMessageSend = async (e) => {
     const senderName = document.getElementById("senderName").value;
     const receiverMail = document.getElementById("receiverMail").value;
     const messageContent = document.getElementById("messageContent").value;
@@ -42,29 +45,59 @@ function MessagesSubmit() {
     <Flex
       position="relative"
       flexDirection="column"
-      alignItems="right"
-      h="100vh"
-      w="100vw"
+      alignItems="center"
+      h="90vh"
+      w="90vw"
+      rp="10"
     >
-      <Box flex='1' position="absolute" left={50} top={0} h="50%" w="50%">
+         <Box position="absolute" pt="30">
+    <Heading size="md">Trimite mail cu informatiile</Heading>
+    <Spacer />
+  </Box>
+      <Box  position="absolute"
+          alignItems="center"
+          top={20}
+          buttom={20}
+          h="80%"
+          w="80%">
         <FormControl>
-          <FormLabel htmlFor="senderName">Name: </FormLabel>
+          <FormLabel htmlFor="senderName">Nume: </FormLabel>
           <Input id="senderName" type="senderName" />
-          <FormLabel htmlFor="senderMail">From: </FormLabel>
+          <FormLabel htmlFor="senderMail">Destinatar: </FormLabel>
           <Input id="senderMail" type="senderMail" />
-          <FormLabel htmlFor="receiverMail">To: </FormLabel>
+          <FormLabel htmlFor="receiverMail">Catre cine: </FormLabel>
           <Input id="receiverMail" type="receiverMail" />
-          <FormLabel htmlFor="messageContent">Message: </FormLabel>
+          <FormLabel htmlFor="messageContent">Mesaj: </FormLabel>
           <Input id="messageContent" type="messageContent" />
-          <FormLabel htmlFor="location">Location: </FormLabel>
+          <FormLabel htmlFor="location">Locatie: </FormLabel>
           <Input id="location" type="location" />
         </FormControl>
         <Spacer />
-        <ButtonGroup>
+        <Center>
+        <ButtonGroup pt="50">
           <Button colorScheme="pink" type="submit" onClick={handleMessageSend}>
             Trimite
           </Button>
+          <Button
+          colorScheme="pink"
+          type="submit"
+          onClick={() => {
+            navigate("/locationinfo");
+          }}
+        >
+          Afiseaza ultimele locatii
+        </Button>
+        <Button
+          colorScheme="pink"
+          type="submit"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+         Inapoi la harta
+        </Button>
         </ButtonGroup>
+        </Center>
       </Box>
     </Flex>
   );

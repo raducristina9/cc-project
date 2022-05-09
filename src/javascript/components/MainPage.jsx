@@ -147,6 +147,9 @@ function MainPage() {
             <Button colorScheme='pink' type='submit' onClick={ ()=> {navigate('/mailinfo')}} >
               Mai departe
             </Button>
+            <Button colorScheme='pink' type='submit' onClick={ ()=> {navigate('/locationinfo')}} >
+             Afisare locatii
+            </Button>
           </ButtonGroup>
           
     </Flex>

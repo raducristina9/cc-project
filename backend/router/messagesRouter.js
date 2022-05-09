@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/info", async (req, res) => {
-    const { senderName, senderMail, receiverMail,location,  messageContent, timeOfMeeting, dateOfMeeting } =
+    const { senderName, senderMail, receiverMail,location,  messageContent, } =
         req.body;
 
     if (
@@ -34,15 +34,15 @@ router.post("/info", async (req, res) => {
     }
 try{
 
-    let finalMessage = "Buna, sunt ".concat(senderName).concat(",\n Uremeaza sa ne vedem pe ").concat("\n Locatia finala este ").
-    concat(location).concat("\n mai voiam sa iti transmit: \n").concat(messageContent)
+    let finalMessage = "Buna, sunt ".concat(senderName).concat("\n Locatia finala este ").
+    concat(location).concat("\n Mai voiam sa iti transmit: \n").concat(messageContent)
 
-        // sendMail(
-        //     receiverMail,
-        //     senderMail,
-        //     finalMessage,
-        //     `${senderName} Ti-a transmis un mesaj`
-        // );
+        sendMail(
+            receiverMail,
+            senderMail,
+            finalMessage,
+            `${senderName} Ti-a transmis un mesaj`
+        );
 
         connection.query(
             `INSERT INTO meetinginfo ( 
