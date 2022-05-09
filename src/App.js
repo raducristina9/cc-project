@@ -9,7 +9,7 @@ function App() {
   return (
 <BrowserRouter>
   <Routes>
-	<Route path="/" element={<MainPage/>}/>
+	<Route path="" element={<MainPage/>}/>
   <Route path="/mailinfo" element={<><Navbar/><MessagesSubmit/></>}/>
   <Route path="/locationinfo" element={<><Navbar/><MessagesList/></>}/>
   
